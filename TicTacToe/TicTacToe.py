@@ -112,7 +112,7 @@ def createDataset(n=1000, use_model=''):
 
         if reward == 2:
             for i, x in enumerate(X[0:-1]):
-                if A[i] == -1:
+                if A[i] == -1 and x not in x_train:
                     x_train.append(x)
 
                     vec = [0] * env.action_space_n
@@ -122,8 +122,8 @@ def createDataset(n=1000, use_model=''):
     return x_train, y_train
 
 
-if __name__ == "!__main__":
-    x_train, y_train = createDataset(100)
+if __name__ == "__main__":
+    x_train, y_train = createDataset(1000)
 
     x_train = np.array(x_train).reshape(-1, 9)
     y_train = np.array(y_train).reshape(-1, 9)
@@ -131,7 +131,7 @@ if __name__ == "!__main__":
     print(len(x_train))
     print(len(y_train))
 
-if __name__ == "__main__":
+if __name__ == "!__main__":
     human_wins = 0
     cpu_wins = 0
 

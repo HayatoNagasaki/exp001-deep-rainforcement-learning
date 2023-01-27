@@ -6,7 +6,10 @@ import numpy as np
 
 def createModel(load=''):
     if load != '':
-        model = tf.keras.models.load_model(load)
+        model = tf.keras.models.load_model(load, compile=False)
+        model.compile(optimizer='adam',
+                      loss=tf.keras.losses.MeanSquaredError(),
+                      metrics=['accuracy'])
         return model
 
     model = tf.keras.models.Sequential()
