@@ -122,7 +122,7 @@ def createDataset(n=1000, use_model=''):
     return x_train, y_train
 
 
-if __name__ == "__main__":
+if __name__ == "!__main__":
     x_train, y_train = createDataset(1000)
 
     x_train = np.array(x_train).reshape(-1, 9)
@@ -131,12 +131,12 @@ if __name__ == "__main__":
     print(len(x_train))
     print(len(y_train))
 
-if __name__ == "!__main__":
+if __name__ == "__main__":
     human_wins = 0
     cpu_wins = 0
 
-    for i in range(50):
-        env, X, A, reward = run(render=False, use_model='model_TicTacToe.h5')
+    for i in range(100):
+        env, X, A, reward = run(render=False, use_model='TicTacToe/model_TicTacToe.h5')
         # env, X, A, reward = run(render=False)
 
         if reward == 1:
